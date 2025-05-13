@@ -1,3 +1,6 @@
+Domain-Driven Design: Tackling Complexity in the Heart of Software
+Eric Evans
+
 # Part 1 - Putting the Domain Model to work
 
 ## Preface + Chapter 1 - Crunching knowledge
