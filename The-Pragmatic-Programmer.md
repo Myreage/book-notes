@@ -21,7 +21,6 @@ Prendre ses responsabilités:
 - si on prend ses responsabilités, les gens nous font confiance, et la team tourne bien
 - ça veut pas dire que tout se passe bien quand on prend nos responsabilités, dans ces cas là ce qui compte c'est d'être honnête, assumer, et avoir des options plutôt que des excuses pourries.
 
-
 > [!Tip]
 > Plutôt que dire "c'est pas possible", arriver avec des options à proposer. En gros, se mettre à la place de son interlocuteur pour anticiper les idées qu'il va avoir. C'est beaucoup mieux que de débarquer avec des vieilles excuses pourries.
 
@@ -53,7 +52,7 @@ Attention cependant à ne pas tomber dans l'écueil inverse ! Il ne s'agit pas d
 
 Investir dans soi même c'est le meilleur bet, et autant le voir comme un vrai investissement financier:
 
-- **Investir REGULIÈREMENT**: prendre l'habitude, même si c'est peu 
+- **Investir REGULIÈREMENT**: prendre l'habitude, même si c'est peu
 - Diversifier: pour être plus changement-ready, et globalement être plus attractif
 - Gérer le risque: ne pas tout miser sur des trucs high risk (genre la blockchain lol), mais y mettre le nez peut quand même être un excellent pari
 - Buy low, sell high: Etre le premier sur une techno prometteuse a un payoff extraordinaire
@@ -87,4 +86,5 @@ Petite parenthèse sur la documentation: c'est très bien de commenter son code,
 > It's both what you say and the way you say it
 
 # Chapter 2
+
 topic 8 to 11
