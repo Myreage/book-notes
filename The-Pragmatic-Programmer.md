@@ -87,4 +87,39 @@ Petite parenthèse sur la documentation: c'est très bien de commenter son code,
 
 # Chapter 2
 
-topic 8 to 11
+## The essence of good design
+
+Une bonne mesure d'un good design est son ETC = Easier To Change.
+Découpler = ETC, SRP = ETC, bon namings = ETC, etc etc.
+
+Pour ça, il convient de se poser la question tout le temps "est-ce que ce que je viens de faire rend le code plus ETC ou moins ETC ?"
+
+## DRY - The Evils of Duplication
+
+DRY c'est important pour la KNOWLEDGE. L'étendre à tout c'est un erreur. Parfois on veut découpler des choses, ou bien des fonctions ont l'air rigoureusement similaires mais elles n'ont rien à voir entre elles d'un pdv logique.
+
+Documenter comme un fou ses fonctions c'est une DRY violation: il suffit de lire le code (s'il est bien écrit), pas la peine de dupliquer la logique dans un commentaire au dessus du nom de la fonction (qui va pas être à jour dans 2 semaines)
+
+Il faut rester DRY dans la data aussi: si on a start et end, pas besoin d'avoir length
+
+Il est difficile de respecter le DRY quand il y a bcp d'équipes: des gens vont réimplémenter des choses sans savoir que ça existe déjà. Pour ça, il faut encourager la communication inter équipes, et développer des choses faciles à re-use.
+
+## Orthogonality
+
+= découplage
+
+Bénefs:
+
+- moins de temps pour dev
+- réutilisabilité
+- réduction des risques
+- robustesse
+- meilleurs tests
+- pas couplé à un tiers
+
+## Reversibility
+
+Le monde du software est ultra changeant, et il faut design en conséquence. A savoir rendre le changement plus simple:
+
+- planquer les 3rd parties sous des abstractions maison
+- DRY, découplage,...
