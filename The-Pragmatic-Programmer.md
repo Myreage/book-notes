@@ -123,3 +123,5 @@ Le monde du software est ultra changeant, et il faut design en conséquence. A s
 
 - planquer les 3rd parties sous des abstractions maison
 - DRY, découplage,...
+
+-> finir chapter 2
