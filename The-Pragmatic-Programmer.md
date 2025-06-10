@@ -124,4 +124,61 @@ Le monde du software est ultra changeant, et il faut design en conséquence. A s
 - planquer les 3rd parties sous des abstractions maison
 - DRY, découplage,...
 
--> finir chapter 2
+## Tracer Bullets
+
+Quand on dev des nouveautés on est un peu à l'aveugle: est-ce que ça va marcher, est-ce que le user va capter etc.
+Plutôt que de faire un giga calcul à l'avance pour prévoir/estimer/concevoir tout ça, on peut utiliser des tracer bullets.
+
+Concrètement, plutôt que tout faire d'un coup, commencer par dev l'essentiel, s'assurer que ça "hit", puis dev la suite.
+Pas en mode crado cependant, l'idée est pas de faire un dirty POC. On fait du vrai code clean, mais baby steps.
+Avantages:
+
+- Les users ont un truc rapidement
+- Les fondations sont posées pour le dev
+- L'intégration est prête (rajouter un truc -> directement intégré au système et testable)
+- On a qq chose dont on peut faire une démo
+- Meilleure sensation de progression
+
+A partir du feedback user sur les tracer bullets, on sait si on est dans la bonne direction ou s'il faut réctifier le tir.
+
+Différence avec un prototype/POC/MVP: on jette pas le code à la poubelle
+Le tracer vise à vraiment tester le système "en conditions réelles", avec la DX derrière.
+
+## Prototypes and Post-it Notes
+
+Faire du prototyping est utile quand on veut tester ou apprendre sur une variété de choses:
+
+- archi
+- features
+- 3rd parties
+- perf
+- UX
+
+Un proto peut très bien être un dessin, des post-its, whatever
+
+Choses qu'on peut ignorer quand on fait un proto:
+
+- Corrrectness (fake data)
+- Completeness (faut juste que le chemin "démo" fonctionne)
+- Robustesse
+- Style
+
+Il faut être **très clair** sur le fait que c'est du code temporaire
+Si l'idée de devoir tout refaire ne plait pas, alors les tracer bullets marcheront mieux.
+
+## Domain Languages
+
+pas tout compris
+
+## Estimating
+
+Le but d'estimer est d'éviter les surprises.
+Pour estimer, il faut:
+
+- comprendre la demande
+- faire un modèle mental du système
+- découper ce modèle
+- valuer chaque morceau
+- suivre la progression et réctifier
+
+Quand on te demande "ça va prendre combien de temps ?" la meilleure réponse est souvent "Je reviens vers toi" plutôt que de donner un truc faux à la va vite dont on va se mordre les doigts.
