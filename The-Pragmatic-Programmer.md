@@ -168,7 +168,7 @@ Si l'idée de devoir tout refaire ne plait pas, alors les tracer bullets marcher
 
 ## Domain Languages
 
-pas tout compris
+pas grand chose à dire
 
 ## Estimating
 
