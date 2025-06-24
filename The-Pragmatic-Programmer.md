@@ -182,3 +182,61 @@ Pour estimer, il faut:
 - suivre la progression et réctifier
 
 Quand on te demande "ça va prendre combien de temps ?" la meilleure réponse est souvent "Je reviens vers toi" plutôt que de donner un truc faux à la va vite dont on va se mordre les doigts.
+
+# Chapter 3
+
+## The Power of Plain Text
+
+Le plain text, c'est le meilleur moyen de garder de la knowledge. C'est encore mieux si c'est du plain text lisible (genre pas un truc encrypté bizarre)
+
+- pas d'obsolescence
+- compatible avec la plupart des outils
+- facile à tester
+
+## Shell Games
+
+Les GUI c'est super mais c'est limitant, on peut être bcp plus productif avec son terminal.
+Un vrai bg personnalise son shell:
+
+- themes
+- prompt
+- aliases
+- command completion
+
+## Power editing
+
+Important d'être fluent avec son outil principal: l'éditeur.
+C'est mieux d'en utiliser un seul pour tout.
+Liste de choses à savoir faire sans la souris:
+
+- savoir bouger et sélectionner par caractère, mot, ligne, paragraphe
+- bouger par delimiters, functions, modules
+- réindenter
+- comment/uncomment
+- undo/redo
+- split window + navigation entre splits
+- go to line
+- sort lines
+- search par mot, pattern, regex
+- multi cursor
+- display erreurs
+- lancer tests
+
+Pour progresser là dedans il faut s'inspecter, et à chaque fois qu'on fait un truc répétitif ou painful, chercher un meilleur moyen.
+
+Idée de challenge: Une semaine entière sans la souris
+
+## Version Control
+
+Evidemment c'est un must have
+Permet de :
+
+- undo/redo
+- historiser
+- track les changements
+- identifier les releases
+- paralléliser le taff
+
+Les branches permettent de travailler en isolation
+
+C'est également une excellente idée de VCS-iser absolument tout: config perso, scripts, etc
