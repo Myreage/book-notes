@@ -159,3 +159,60 @@ Le reste sera peut être géré par d'autres entities ou value objects
 #### Designing the identity operation
 
 "Each entity must have an operational way of establishing its identity with another object"
+
+### Value Objects
+
+N'ont pas d'identité
+Servent à décrire les caractéristiques de qq chose.
+On pourrait coller un id à tout objet d'un système, mais il y a des objets qui n'ont pas besoin d'identité. Dans ce cas on alourdit et complexifie le système pour rien
+
+Une value object n'est pas forcément un scalaire, ça peut être un assemblage d'objets. Ca peut même référencer une Entity: par exemple dans un système de GPS, une Route qui référence 2 Locations (qui sont elles des Entities)
+
+Les Value Object doivent être immutables: en effet, vu qu'ils n'ont pas d'identité, on pourrait imaginer 2 Person avec le même Name. Si on mute ce name sur un des Person, il mute pour l'autre. No good !
+On peut déroger à cette règle dans certains cas par simplification, mais il faut faire gaffe ! Par exemple:
+
+- la valeur change fréquemment
+- le coup de création/deletion est élevé
+- il n'y a pas de sharing
+
+De façon générale, partager des VO peut être un peu risqué donc c'est à utiliser avec parcimonie
+Les avantages de partager étant principalement de l'ordre de l'optimisation (stockage par ex)
+
+Bref les faire immutables, c'est plus safe.
+
+De préférence, les infos doivent être un "whole". Donc par exemple au lieu d'avoir city, street, postalCode sur une entity Person, on va avoir un Value Object Address qui contient tout ça
+
+### Services
+
+Parfois on arrive pas à relier des opérations à un objet.
+Dans ces cas là parfois on va essayer de les foutre dans un objet quand même, menant à une perte de clarté, et à une distorsion du modèle.
+C'est là que les Services interviennent.
+
+Un Service est tout simplement une opération qu'on expose. Elle n'a pas de state comme les entities ou les vo.
+Il est purement défini par "ce qu'il peut faire pour le client".
+Il est plutôt défini par un verbe que par un nom.
+Sa responsabilité doit clairement être définie, et faire partie du domain model.
+
+3 caractéristiques d'un bon service:
+
+- L'opération fait référence à un concept domain qui ne fait pas naturellement partie d'une entity ou vo
+- L'interface est définie avec d'autres éléments du domain model
+- L'opération est stateless
+
+En terme de layers ça donne ça par exemple:
+
+- Application: Funds Transfer App Service - digère l'input, envoie un mess au domain service pour effectuer la demande, listen pour la confirmation, décide d'envoyer une notif en utilisant l'infrastructure service
+- Domain: Funds Transfer Domain Service - intéragis avec Account et Ledger pour faire les débits et les crédits, fournit des résultats sur la transaction (not allowed, etc)
+- Infra: Send Notification Service - envoie les mails, notifs, etc comme demandé par l'application
+
+### Modules
+
+Egalement appelés packages, sont plus une contrainte technique qu'autre chose.
+Si on les utilise, il faut respecter le principe de "low coupling, high cohesion" -> les modules doivent être découplés, mais à l'intérieur tout doit être cohérent.
+Si on les utilise, il faut les référencer dans le domain model
+C'est cependant intéressant pour séparer la domain logic du reste du code
+
+### Modeling paradigms
+
+La POO est parfaitement alignée avec le DDD parcequ'on parle d'objets, que la techno est robuste et très utilisée.
+On peut faire autrement, mais il faut respecter la règle "l'implem doit refléter le model". Si on y arrive pas, c'est qu'il faut arrêter cette techno (ou le DDD)
