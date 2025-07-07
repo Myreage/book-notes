@@ -240,3 +240,64 @@ Permet de :
 Les branches permettent de travailler en isolation
 
 C'est également une excellente idée de VCS-iser absolument tout: config perso, scripts, etc
+
+## Debugging
+
+Debugging = juste problem solving.
+Pas la peine de faire du finger pointing, des excuses, des machins. C'est juste un puzzle.
+
+Que ce soit ma faute ou pas, ça reste un problème qui me concerne.
+
+- Ne pas paniquer
+- Trouver la cause plutôt que s'arrêter aux symptomes
+- Commencer avec une codebase à jour et saine (pas d'erreurs de compil, types, etc)
+- Discuter avec le user qui report le bug pour comprendre
+- Les petits tests "happy path" ne suffisent pas, il faut tester comme un taré
+
+Stratégies:
+
+- Reproduce
+- Ecrire un test qui fail avant de fix --> HYPER IMPORTANT
+
+- Faire attention aux messages d'erreur
+
+- Parfois c'est pas un bug, juste un mauvais résultat
+
+- Procéder par dichotomie (git bissect)
+
+- Ajouter des logs, du tracing
+
+- Rubber ducking
+
+- Procéder par élimination
+
+Debugging checklist:
+
+- Is the problem being reported a direct result of the underlying bug, or merely a symptom ?
+- Is the bug really in the framework you're using ? Is it in the OS ? Is it in your code ?
+- If you explained the problem in detail to a coworker, what would he say ?
+- If the suspect code passes its unit tests, are the tests complete enough ? What happens if you run the tests with this data ?
+- Do the conditions that caused this bug exist anywhere else in the system ? Are there other bugs still in the larval stage, just waiting to hatch ?
+
+## Text Manipulation
+
+C'est cool de bien s'équiper (soit en shell, soit en python, whatever) pour pouvoir rapidement sortir des petits utilitaires
+
+## Engineering Daybooks
+
+Pratique d'avoir un petit carnet où on note:
+
+- ce qu'on a fait dans la journée
+- ce qu'on a appris
+- des idées
+- des notes de réu
+- à peu près tout et n'importe quoi du boulot
+
+Avantages:
+
+- plus reliable que la mémoire
+- libère de la charge mentale
+- auto rubber ducking
+- reflect
+
+Le bouquin recommande le papier plutôt que le digital: écrire à la main c'est "spécial"
