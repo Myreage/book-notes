@@ -301,3 +301,5 @@ Avantages:
 - reflect
 
 Le bouquin recommande le papier plutôt que le digital: écrire à la main c'est "spécial"
+
+-> all chapter 4
