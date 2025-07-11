@@ -216,3 +216,80 @@ C'est cependant intéressant pour séparer la domain logic du reste du code
 
 La POO est parfaitement alignée avec le DDD parcequ'on parle d'objets, que la techno est robuste et très utilisée.
 On peut faire autrement, mais il faut respecter la règle "l'implem doit refléter le model". Si on y arrive pas, c'est qu'il faut arrêter cette techno (ou le DDD)
+
+## Chapter 6 - The life cycle of a domain object
+
+### Aggregates
+
+On a vu plus tôt que c'est mieux de simplifier au maximum les associations. En réalité, y en a tellement partout que ça devient vite le bordel.
+
+An Aggregate is a cluster of associated objects that we treat as a unit for the purpose of data change.
+
+Un aggregate a:
+
+- une root: le seul élément de l'aggregate que l'exterieur peut référencer
+- une boudary: définit ce qu'il y a dans l'aggregate
+
+Exemple de la voiture p.127
+
+- L'entity root a une identité globale, et est responsable de maintenir les invariants
+- Les entities dans la boundary (autre que la root) ont des identités locales, valables uniquement au sein de l'aggregate
+- A l'extérieur de l'aggregate, rien ne peut tenir de référence aux entities internes à part la root. La root peut cependant transmettre des références aux entités internes, pour un usage temporaire
+- Seul la root peut être obtenue par une query db. Les autres sont trouvés par des associations
+- Les objets dans l'aggregat peuvent référencer d'autres aggregate roots
+- Un DELETE doit supprimer tout ce qui se trouve dans l'aggregat
+- Quand un changement a lieu dans la boundary, tous les invariants doivent être satisfaits
+
+-> Il est très utile d'avoir un framework qui permette de déclarer des aggregates
+
+Exemple Purchase Order p.130
+
+### Factories
+
+Parfois la création d'un objet est très complexe (dans le cas d'Aggregates par exemple), et elle n'a pas un gros interêt d'un pdv du domaine. Par contre, ça reste la responsabilité du domain. Dans ce cas là, on peut créer des Factories, dont la seule responsabilité est de créer des objets.
+Globalement, on crée des factories quand on veut cacher les détails techniques de la création
+
+Pour une bonne Factory il faut:
+
+- Atomique et assure tous les invariants.
+- Abtrait en le type désiré, plutôt que dans la classe crée concrètement
+
+Parfois le constructeur c'est quand même mieux quand:
+
+- L'implem est importante
+- La construction est simple
+
+### Repositories
+
+Récupérer des trucs de la db (ou plutôt reconstituer), ça doit se limiter aux entities et aux root entities:
+
+- les VO doivent être récupérés transversalement (Person.adress)
+- les objets internes des aggregates sont obligatoirement récupérés transversalement aussi (PO.productLines)
+
+Autrement dit, SEULES LES ROOT ENTITIES ONT DROIT AUX REPOSITORIES (ou celles qui sont root de leur aggregate dans lequel elles sont toutes seules)
+
+Les Repositories sont là pour encapsuler la logique de database et nous laisser nous focus sur le domain et l'intention.
+
+Avantages:
+
+- Modèle simple pour obtenir des objets persistants et gérer leur lifecycle
+- Découplage
+- Communique des décisions de design au sujet de l'accès aux objets
+- Permette de mocker facilement (testing)
+
+Attention: encapsuler la logique de storage c'est potentiellement dangereux. En effet, les utilisateurs du repository ne savent pas ce qui se passent under the hood, et peuvent sans le savoir utiliser des query ultra gourmandes par exemple.
+
+Quelques idées pour l'implem:
+
+- puisque c'est découplé, on peut en profiter pour faire "du sale": de la grosse optim, etc
+- laisser les transactions au client: c'est souvent dans le contexte d'utilisation qu'on sait ce qu'on veut transactionnaliser. C'est donc potentiellement plus simple de ne pas gérer les transactions dans le repository
+
+-> Utile d'avoir un framework pour faire des repository
+Pour plus de lecture là dessus, Fowler 2022
+
+C'est super clean de déléguer la reconstitution/création de l'objet à la factory.
+Genre le repository query l'objet, et c'est la factory qui crée l'objet derrière
+
+## Chapter 7 - Using the Language: An Extended Example
+
+Exemple de conception qui utilise tous les termes évoqués précédemment, sur un exemple de Cargo Shipping
