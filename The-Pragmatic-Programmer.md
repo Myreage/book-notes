@@ -302,4 +302,55 @@ Avantages:
 
 Le bouquin recommande le papier plutôt que le digital: écrire à la main c'est "spécial"
 
--> all chapter 4
+# Chapter 4 - Pragmatic Paranoia
+
+Il est impossible d'écrire du software parfait
+
+## Design by contract
+
+L'idée est que chaque fonction/module aie une sorte de contrat qu'elle s'engage à remplir. Ce contrat peut être formulé en:
+
+- preconditions: les conditions dans lesquelles le module peut se lancer
+- postconditions: les conditions que le module garantit en sortie
+- invariants: choses qui restent vraies avant et après l'execution
+
+Le conseil est donc d'écrire du code "paresseux", qui se limite à son contrat et ne fait rien de plus. Et plus son contrat est petit et facile à remplir, mieux c'est.
+
+Pour implémenter ça:
+
+- toujours se poser la question du contrat avant d'écrire la fonction est un bon début
+- utiliser ce que le langage nous offre: par exemple un typage fort des arguments/result en typescript
+
+## Dead Prorams Tell No Lies
+
+Faire des gros try/catch où on chope l'erreur pour la log c'est déconseillé.
+Déjà ça cache le code dans du error handling.
+Ensuite le code est moins couplé: si on ajoute un type d'erreur, on peut oublier de la catch au dessus.
+
+C'est mieux de crash complètement, que de pas throw et continuer avec de la data merdeuse.
+
+## Assertive programming
+
+Protéger son code de toutes les merdes en assertant plein de trucs.
+Genre si on se dit "nah count pourrait jamais valoir 0", bah le check quand même.
+Ces assertions sont réservées aux trucs qui ne devrait jamais arriver. C'est pas du error handling "normal" !
+
+## How to Balance Resources
+
+Ne pas laisser l'allocation/désallocation de ressources à des sous fonctions. Le gérer dans le parent pour être sur que dans tous les cas d'execution, tout est bien alloué/désalloué.
+Ca vaut pour tous les trucs du même style.
+Quid si un bout du code throw ? Ca dépend du langage, y en a qui vont free après la sortie du bloc via throw. D'autres pas, dans ces cas là il y a des outils genre le "finally"
+
+Enfin, pour être sûr que tout va bien, on peut checker les ressources. Ex: une API qui attend des requêtes, quand elle reçoit une nouvelle requête, peut vérifier que la mémoire est pas full avant de rajouter un process.
+
+## Don't Outrun Your Headlights
+
+Toujours y aller par petits pas, checker le feedback, et ajuster.
+Une tâche est trop grande quand on tombe dans le "fortune telling":
+
+- on doit estimer des délais à plusieurs semaines
+- deviner les besoins futurs
+- deviner les progrès technologiques
+- préparer un design pour la maintenance et l'extendability future
+
+quand on dit futur ici c'est "lointain futur"
