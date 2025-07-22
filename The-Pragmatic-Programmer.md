@@ -354,3 +354,5 @@ Une tâche est trop grande quand on tombe dans le "fortune telling":
 - préparer un design pour la maintenance et l'extendability future
 
 quand on dit futur ici c'est "lointain futur"
+
+-> chapter 5 topic 28-29
