@@ -293,3 +293,87 @@ Genre le repository query l'objet, et c'est la factory qui crée l'objet derriè
 ## Chapter 7 - Using the Language: An Extended Example
 
 Exemple de conception qui utilise tous les termes évoqués précédemment, sur un exemple de Cargo Shipping
+
+# Part 3 - Refactoring Toward Deeper Insight
+
+Le modèle initial est souvent initial et naïf, basé sur une connaissance partielle
+
+Un deep model donne une expression lucide des besoins primaires des domaines experts et de leur knowledge, tout en évincant les aspects superficiels du domaine.
+
+Dans une démarche de refactoring constant, le design lui-même doit être pensé pour le changement.
+
+Pour trouver de bons moyens de modéliser les concepts, on va en général dépendre de notre créativité et de trial/error
+
+## Chapter 8 - Breakthrough
+
+Parfois on réalise qu'il faudrait faire un très gros changement dans le modèle: un breakthrough. En particulier quand on cherche à passer d'un shallow model à un deep model.
+
+## Chapter 9 - Making Implicit Concepts Explicit
+
+Beaucoup de transformations du code et du modèle arrivent quand un concept passe d'implicite à explicite. (ex Ovrsea: les PO)
+Ceci parceque le modèle se raffine et s'approfondit avec le temps.
+
+Comment trouver ces concepts ?
+En écoutant les users et en se posant des questions:
+
+- est-ce que ce terme revient souvent ?
+- est-ce que ce terme cache quelque chose de plus compliqué ?
+
+## Chapter 10 - Supple Design
+
+Supple design = un design avec lequel on prend du plaisir à travailler et qui est agréable à changer.
+Quelques patterns qui vont dans ce sens:
+
+- Intention-Revealing Interfaces: nommer ses fonctions de façon ) décrire leur but et effet, sans mentionner le "comment" elles fonctionnent (tout en restant ubiquitous). Le but est que les devs n'aient pas à fouiller l'implem pour comprendre ce qu'ils utilisent
+- Side-effect-free functions: C'est relou parceque souvent on veut utiliser une opération, et on se doute qu'elle a plein de side effects mais on sait pas trop lesquels. Pour contenir un peu ça, on peut (ex p.253):
+  - CQS: Query = pas de side effects
+  - Mettre un maximum de logique dans des opérations qui n'ont pas de side effects.
+- Assertions: Quand on a beaucoup de side effects, on a pas d'autre choix que de traver les relations cause/effet pour comprendre. Pour limiter ça, on peut utiliser des invariants, des pré-conditions, post-conditions, assertions, etc. Soit via le langage s'il le permet, soit par exemple via des test unitaires
+- Conceptual Contours: ???
+- Standalone Classes: moins une classe est liée à d'autres classes/dépendences, moins on a de choses à comprendre pour l'utiliser. Aggregats et modules aident dans ce sens, et pour aller plus loin il faut penser low coupling
+
+Quelques angles d'attaque:
+
+- Subdomains: Y aller petit, commencer avec un petit morceau de domaine
+- Se baser sur des formalises existants (dans la littérature, le web, etc, plein de problèmes ont déjà été résolus)
+
+Exemple p.284
+
+## Chapter 11 - Applying Analysis Patterns
+
+= concepts qui représentent un problème classique en modelling. cf le bouquin Analysis Patterns de Fownler.
+On peut s'en servir en DDD dans pas mal de cas.
+
+## Chapter 12 - Relating Design Patterns to the Model
+
+Tout ce qu'on a vu ici comme patterns c'est des Domain Patterns, pas des Design Patterns.
+Les Design Patterns sont des implementations de pb classiques, et on peut piocher dedans.
+Par exemple: Strategy (Policy), Composite
+
+## Chapter 13 - Refactoring Toward Deeper Insight
+
+Quand on refacto, il faut garder en focus:
+
+- Vivre dans le domaine
+- Regarder les choses d'un autre angle
+- Dialoguer avec les experts
+
+Process classique:
+
+- On trouve un truc qui va pas et qu'on veut (re)modéliser
+- On monte une squad express d'une poignée de personnes, avec éventuellement un domain expert, et on brainstorm 30mn-1h30
+- On code, ou on laisse reposer un peu le modèle et on re-brainstorm
+  Pour garder ce process productif:
+- Pas besoin de bordel administratif ou de gestion de projet: on monte juste une petite squad commando
+- 2-3 petites réus doivent être suffisantes. Sinon c'est qu'on over-engineer ou qu'on a mal scopé
+- Ubiquitous: à pratiquer à fond
+
+Souvent il y a de bons exemples dans le state of the art, faut pas réinventer la roue
+
+Il ne faut pas attendre et faire du continuous refactoring, en particulier quand:
+
+- Le design n'exprime pas la compréhension qu'on a du domaine
+- Il y a des implicites à expliciter
+- On veut rendre le design suppler
+
+Parfois une crise représente une super opportunité: on nous demande une feature hyper dure à implémenter avec le modèle actuel, on se rend compte qu'il faut reprendre le modèle.
