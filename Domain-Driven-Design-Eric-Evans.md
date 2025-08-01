@@ -377,3 +377,81 @@ Il ne faut pas attendre et faire du continuous refactoring, en particulier quand
 - On veut rendre le design suppler
 
 Parfois une crise représente une super opportunité: on nous demande une feature hyper dure à implémenter avec le modèle actuel, on se rend compte qu'il faut reprendre le modèle.
+
+# Part 4 - Strategic Design
+
+## Chapter 14 - Maintaining Model Integrity
+
+Bounded context = une limite au sein de laquelle le modèle a du sens, est intègre.
+En gros dans un gros système c'est impossible d'avoir un unique modèle unifié. Donc on coupe le modèle en definissant des contextes dans lesquels des sous-modèles s'appliquent bien.
+L'enjeu ensuite est de conserver l'intégrité du modèle global.
+Pour ça la base c'est d'avoir une bonne CI, avec des tests etc, et de merger fréquemment en mode Extreme Programming.
+
+La réutilisation du code entre les bounded contexts est dangereuse, et à éviter. L'intégration des fonctionnalités et des données doit se faire à travers de la traduction.
+
+Les relations entre bounded contexts sont présentées à travers une Context Map
+
+Type de bounded contexts et de relations:
+
+### Shared Kernel
+
+Un bout du domaine que les équipes s'engagent à partager et à maintenir ensemble.
+Typiquement un bout de modèle très central du système qui est utilisé un peu partout
+
+### Customer/Supplier
+
+Un contexte nourrit un autre.
+Dans ce cas, pour s'organiser, l'équipe qui gère le customer se comporte comme tel: elle lead les discussions pour définir ce dont elle a besoin.
+
+### Conformist
+
+Globalement c'est un Customer/Supplier sauf que le Supplier ne se plie pas aux demandes du Customer (pour des raisons hierarchiques ou organisationnelles par exemple).
+Dans ce cas le Supplier fait sa tambouille, et le Customer se débrouille avec comme un esclave. Il n'essaye pas de traduire les objets, il les prend comme ils sont.
+On se retrouve un peu comme dans un Shared Kernel sauf qu'il n'y a pas de notion de collaboration.
+
+### Anti-corruption Layer
+
+Quand on travaille avec un système legacy pourri globalement un layer qui traduit ses concepts pourris en concepts plus sympatoches
+
+### Separate Ways
+
+Parfois le plus simple, c'est d'avoir un bounded context qui n'a aucune relation avec les autres !
+
+## Chapter 15 - Distillation
+
+### Core domain
+
+Dans les faits, même si on a une architecture layered avec le domaine bien isolé, le domaine va devenir tellement massif qu'on va s'y perdre.
+Pour ça, l'idée est d'identifier quel est le coeur réel du domain: le Core Domain, et trouver un moyen de le différencier du reste.
+
+### Generic subdomains
+
+Des sous-domaines qui traitent des problèmes classiques. Ceux-ci doivent être mis un peu à l'écart (dans des modules par ex), voir utiliser des solutions existantes. Assez peu d'effort de dev doit y être consacré.
+
+### Domain vision statement
+
+Ecrire un statement assez concis (max 1 page) qui donne la vision derrière ce domaine: à quoi il sert, la direction, etc...
+
+### Highlighted Core
+
+Dans la même veine, écrire un document un peu plus élaboré dédié au Core.
+
+### Segregated Core
+
+On peut avoir des élements dans le modèle qui sont partiellement core et partiellement supporting.
+Dans ces cas là il peut être intéressant de découper pour isoler les parties supporting.
+
+## Chapter 16 - Large Scale Structure
+
+pas capté grand chose, j'ai survolé
+
+## Chapter 17 - Bringing the Strategy Together
+
+6 essentiels pour le decision making du strategic design:
+
+- Decisions must reach the entire team
+- The decision process must absorb feedback
+- The plan must allow for evolution
+- Architecture teams must not siphon off all the best and brightest
+- Strategic design requires minimalism and humility
+- Objects are specialists, developers are generalists
