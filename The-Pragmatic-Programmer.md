@@ -355,4 +355,42 @@ Une tâche est trop grande quand on tombe dans le "fortune telling":
 
 quand on dit futur ici c'est "lointain futur"
 
--> chapter 5 topic 28-29
+# Chapter 5 - Bend or Break
+
+Faut écrire du code flexible et future proof.
+Le mieux c'est encore de pas écrire de code du tout kek.
+
+## Decoupling
+
+Du code découplé = du code facile à changer
+
+Prince "Tell, Don't Ask" (TDA): on ne devrait pas prendre de décisions basées sur l'état interne d'un objet puis le mettre à jour.
+
+Concrètement
+
+```ts
+const totals = customer.find(order_id).getTotals();
+totals.grandTotal = totals.grandTotal - dicsount;
+totals.discount = discount;
+```
+
+Devient
+
+```ts
+customer.findOrder(order_id).applyDiscount(discount);
+```
+
+En gros au lieu de query des trucs sur un objet et de faire des bails, il faut juste dire à l'objet quoi faire.
+
+Law of Demeter: les méthodes d'un objet C ne devrait appeler que:
+
+- d'autres instances de C
+- ses paramètres
+- méthodes dans des objets qu'elle crée
+- variables globales
+
+Garder son code "timide": faire en sorte qu'il ne gère que des choses qu'il connait directement.
+
+## Juggling the real world
+
+Quand on code un truc qui réagit à des events, une bonne tech est d'utiliser des State Machinesh
