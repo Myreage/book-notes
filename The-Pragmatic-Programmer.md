@@ -394,3 +394,5 @@ Garder son code "timide": faire en sorte qu'il ne gère que des choses qu'il con
 ## Juggling the real world
 
 Quand on code un truc qui réagit à des events, une bonne tech est d'utiliser des State Machinesh
+
+-> 2 sessions to catchup
