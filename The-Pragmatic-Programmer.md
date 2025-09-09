@@ -395,4 +395,24 @@ Garder son code "timide": faire en sorte qu'il ne gère que des choses qu'il con
 
 Quand on code un truc qui réagit à des events, une bonne tech est d'utiliser des State Machinesh
 
--> 2 sessions to catchup
+## Transforming Programming
+
+Penser data. Un programme c'est une suite de transformations de données.
+Bénéfices:
+
+- lisibilité
+- compréhension
+- easier to change (au lieu d'encapsuler dans des objets par ex. on forward la data et pas de couplage)
+
+## Inheritance Tax
+
+L'héritage c'est une terrible usine à couplage.
+Meilleures alternatives:
+
+- Interfaces: pour avoir du polymorphisme sans héritage
+- Delegation: par ex séparer la classe qui gère les business rules de la classe qui gère la persistance
+- Mixins et traits: globablement la spécification d'un set de fonctions que plusieurs objets partagent, par exemple tous les repos peuvent avoir les méthodes find, findMany, save...
+
+## Configuration
+
+Configuration dynamique as a service c'est un must pour une appli highly available !!!
