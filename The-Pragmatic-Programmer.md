@@ -416,3 +416,18 @@ Meilleures alternatives:
 ## Configuration
 
 Configuration dynamique as a service c'est un must pour une appli highly available !!!
+
+# Chapter 6 - Concurrency (G PAS LU donc juste notes de la session book club)
+
+Concurrency = software
+Parallelism = hardware
+
+Pour gérer les issues de concurrence:
+- locks
+- totem (SO)
+- transactions
+- etc
+
+Le bouquin suggère un système de Actors and Processes
+
+next time: jusqu'au topic 39 inclus
