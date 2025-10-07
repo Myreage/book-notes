@@ -430,4 +430,33 @@ Pour gérer les issues de concurrence:
 
 Le bouquin suggère un système de Actors and Processes
 
-next time: jusqu'au topic 39 inclus
+# Chapter 7 - While You Are Coding
+
+## Listen to your lizard brain
+
+Avec l'xp, on gagne de l'instinct en matière de code qu'il est important d'écouter.
+Quand on a un sentiment désagréable en codant, il faut se pencher sur "pourquoi" on a cette sensation étrange.
+
+Comment écouter et comprendre son lizard brain:
+- laisser de l'espace, aller faire autre chose pour décanter
+- gribouiller sur un papier
+
+Quand on lit du code qui nous trigger et qu'on est dans un environnement adéquoit: en parler !
+
+## Programming by coincidence
+
+On peut pas savoir pourquoi du code plante si on sait pas pourquoi il marche au départ.
+C'est pas parceque du code foireux incompréhensible fonctionne qu'il faut le laisser en l'état sous couvert de "ça marche donc je prends pas de risque"
+
+Il faut pas coder "au pif" parceque "ça a l'air good". Il faut comprendre profondément.
+- être capable de l'expliquer à un junior
+- avoir un plan
+- ne pas dépendre d'assumptions douteuses
+- documenter ses assumptions
+- ne pas laisser le code existant dicter le futur
+
+## Algorithm speed
+
+Utile d'avoir en tête les O() des algorithmes de base.
+En cas de besoin, il est utile de se pencher sur les parties couteuses de l'algo et par exemple de faire du divide-and-conquer pour passer de O(n2) à O(nlogn)
+Sinon, il y a des code profilers !
