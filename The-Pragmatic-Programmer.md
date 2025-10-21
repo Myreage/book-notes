@@ -460,3 +460,51 @@ Il faut pas coder "au pif" parceque "ça a l'air good". Il faut comprendre profo
 Utile d'avoir en tête les O() des algorithmes de base.
 En cas de besoin, il est utile de se pencher sur les parties couteuses de l'algo et par exemple de faire du divide-and-conquer pour passer de O(n2) à O(nlogn)
 Sinon, il y a des code profilers !
+
+
+## Refactoring
+
+Software engineering est plus proche du jardinage que de la construction de batiments, parceque c'est pas un process défini "plan -> construction"
+C'est plus itératif "on plante, on voit ce que ça donne, on ajuste, etc"
+
+"Refactoring is a day-to-day activity"
+
+Exemples de raisons de refacto:
+- Duplication
+- Design non orthogonal
+- Knowledge périmée
+- Usage
+- Performance
+- Tests
+
+Oui mais le business aime pas quand on refacto parceque on "perd du temps". Important de leur expliquer en quoi c'est critique.
+
+Règles:
+- Ne pas refacto et ajouter des fonctionnalités en même temps
+- Blinder de tests avant
+- Baby steps
+
+## Test to Code
+
+Rien qu'en pensant à ses tests, on découvre déjà des choses et on se clarifie les idées.
+-> Tester avant de coder c'est le feu
+
+"Le test est notre premier utilisateur"
+
+TDD est un banger, mais attention à ne pas tomber dans les extrêmes:
+- Chercher le 100% coverage
+- Blinder de tests redondants
+- Design bottom-up (d'abord les petits problèmes, et seulement après la vision globale)
+
+A propos du bottom-up:
+Le bottom-up (comme un batiment, en commençant par les fondations) ça craint
+Mais le top-down (à l'inverse, partir du gros et décomposer en sous problèmes) aussi
+Les deux approches sont nulles parceque en software on avance souvent un peu à tatons.
+-> Il faut mieux bosser end-to-end, en développant des petits morceaux de flow de A à Z petit à petit
+
+## Property-Based Testing
+
+Pas grand chose à dire, utile pour automatiser des tests quand on a des invariants clairs, par ex vérifier qu'une fonction qui ajoute un int dans une liste sort bien un array de taille n+1. Le PBT va automatiser ce test pour plusieurs entiers pour vérifier qu'on a pas juste eu de la chance.
+
+C'est overkill la plupart du temps selon moi donc chapitre lu en diagonale.
+
