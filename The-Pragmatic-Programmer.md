@@ -508,3 +508,23 @@ Pas grand chose à dire, utile pour automatiser des tests quand on a des invaria
 
 C'est overkill la plupart du temps selon moi donc chapitre lu en diagonale.
 
+## Stay Safe Out There
+
+En big 2025, il faut être parano niveau cyber.
+Quelques principes:
+- Minimize Attack Surface Area
+- Principle of Least Privilege
+- Secure Defaults
+- Encrypt Sensitive Data
+- Maintain Security Updates
+
+Le topic détaille ensuite rapidement chaque partie. Rien de sensas.
+
+## Naming Things
+
+Evidemment: "There are only two hard things in compute science: cache invalidation and naming things"
+
+- Respecter la communauté: en C on utilise souvent i/j/k et c'est ok. Idem pour pascal/camel case. Les communautés de langages ont leurs standards.
+- Consistency: avoir un "jargon" que tout le monde connait dans son code -> ubiquitous language ?
+
+
