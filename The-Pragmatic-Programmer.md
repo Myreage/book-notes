@@ -527,4 +527,65 @@ Evidemment: "There are only two hard things in compute science: cache invalidati
 - Respecter la communauté: en C on utilise souvent i/j/k et c'est ok. Idem pour pascal/camel case. Les communautés de langages ont leurs standards.
 - Consistency: avoir un "jargon" que tout le monde connait dans son code -> ubiquitous language ?
 
+# Chapter 8 - Before the Project
+
+## The Requirements Pit
+
+"Perfection is achieved, not when there is nothing left to add but when there is nothing left to take away" - St Exupéry
+
+Personne sait ce qu'il veut, dans la vraie vie des specs "100% sûr que c'est good" ça n'existe pas.
+
+Le boulot d'un dev c'est aussi de faire comprendre aux gens ce qu'ils veulent.
+
+Quand on nous donne une spec, on doit se poser (et poser au speccer) tout un tas de questions pour raffiner son besoin, les edge cases, etc -> initier un process d'exploration
+
+Pour aider, c'est aussi très fort de se mettre dans la peau d'un user ->  faire des trucs en mode swap my job, ou en mode observation
+
+Les giga specs mega rigoureuses: nul parceque le besoin peut changer, le client y comprend rien etc
+Les petites specs en mode user stories: c'est flexible, le client comprend
+
+Les specs ne doivent pas être trop spécifiques non plus. Elles doivent être abstraites. C'est pas un document d'archi, de design, ou d'UX. C'est l'expression d'un besoin.
+
+Maintenir un langage commun entre tous les stakeholders.
+
+## Solving Impossible Puzzles
+
+Quand on a un truc chaud à faire on peut procéder par élimination:
+- lister toutes les possibilités
+- éliminer méticuleusement les choses qui marchent pas, et pourquoi -> trouver les contraintes
+
+Changer d'air, ne pas se casser la tête.
+
+Se rappeler:
+- pourquoi on fait ça
+- comment on peut simplifier le problème
+
+Expérimenter au quotidien pour nourir son cerveau de ce qui marche/marche pas
+
+## Working together
+
+Bénéfices du PP:
+- 2 cerveaux
+- celui qui code est moins tenté de faire n'imp puisqu'il est observé
+
+On peut aussi faire du Mob Programming en incluant pas que des devs
+
+## The Essence of Agility
+
+Valeurs phares de l'agile:
+- Individus et interactions > process et outils
+- Software qui marche > documentation exhaustive
+- Collaboration avec le client > negociation de contrat
+- Réactivité face au changement > suivre un plan
+
+UN PROCESS AGILE CA N'EXISTE PAS C'EST ANTINOMIQUE
+
+La recette est simple pour être agile:
+- Assess où on en est
+- Faire un tout petit pas vers là où on veut aller
+- Evaluer où on est et réparer si on a pété des trucs
+
+Repeat jusqu'à ce qu'on aie fini
+
+Et de cette boucle de feedback très courte émerge un design qui marche bien
 
