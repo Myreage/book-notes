@@ -589,3 +589,45 @@ Repeat jusqu'à ce qu'on aie fini
 
 Et de cette boucle de feedback très courte émerge un design qui marche bien
 
+# Chapter 9 - Pragmatic Projects
+
+## Pragmatic Teams
+
+Important d'avoir des petites équipes de ~10p max
+- ne pas tolérer les broken windows
+- motiver tout le monde à chacun prendre la responsabilité de surveiller que tout va bien dans le projet pour que la team ne se fasse pas "boiled frog"
+- knowledge/learning planifié rigoureusement
+    - migration du legacy
+    - refinement/refection sur les process
+    - experimentation
+    - learning/skill improvement
+
+C'est important de maintenir une bonne ambiance et une bonne communication. Une bonne team, c'est une team qui a envie de se voir et de se parler. On peut par exemple bosser sur "l'image de la team", avec une identité, un nom, une culture... bref travailler une sorte de sentiment d'appartenance.
+
+Bosser en team non pas en cycle en v mais en tracer bullets: travailler ensemble simultanément sur des petits bouts de sujet, plutôt que chacun dans son coin sur des gros morceaux et au final on se retrouve tous bloqués parceque machin a pas approuvé le design, bidule a pas fini sa disco, etc
+
+## Coconuts don't cut it
+
+Inutile d'investir dans des trucs superficiels (e.g un outil magique pour faire du Scrum, utiliser un framework juste parcequ'il est à la mode, un process de chez Netflix ...)
+
+Tout est potentiellement différent dans notre contexte, et les outils ne s'appliquent pas partout pareil. Pour savoir ce qui marche le mieux pour nous, il faut tester des trucs.
+
+## Pragmatic starter kit
+
+- utiliser du version control pour drive les builds, tests, et releases
+- tester, tester, tester (tôt, souvent, automatiquement)
+- automatiser tout ce qui est automatisable
+
+## Delight your users
+
+C'est satisfaisant de satisfaire les users, et pour ça:
+- s'assurer que tout le monde dans la team est aligné sur les attentes des users
+- garder ces attentes en tête tout le temps
+
+## Pride & Prejudice
+
+Dans une team, le code appartient à la team est l'ownership est partagée par tous.
+Pour autant, ça veut pas dire qu'on ne peut pas être fier de son code, le revendiquer, et à la manière d'un artisan, avoir sa marque de fabrique ou sa marque de qualité.
+Il faut être fier de son code !
+
+
